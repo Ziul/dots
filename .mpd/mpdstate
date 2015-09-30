@@ -1,0 +1,86 @@
+sw_volume: 1
+audio_device_state:1:my_fifo
+state: play
+current: 43
+time: 120
+random: 1
+repeat: 1
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:12 - Fear Of The Dark (Live).mp3
+1:Johnny Cash - Hurt.m4a
+2:You Know My Name.mp3
+3:1993 - Counterparts (WPCR-14995)/split-track04.mp3
+4:Black Sabbath - 13 (Deluxe Version) 2013 Metal 320kbps CBR MP3 [VX]/02 Black Sabbath - God Is Dead-.mp3
+5:Iron Maiden - The Book of Souls (2015) [FLAC]/Disc 1/01 If Eternity Should Fail.flac
+6:Iron Maiden - The Book of Souls (2015) [FLAC]/Disc 1/02 Speed of Light.flac
+7:Iron Maiden - The Book of Souls (2015) [FLAC]/Disc 1/03 The Great Unknown.flac
+8:Iron Maiden - The Book of Souls (2015) [FLAC]/Disc 1/04 The Red and the Black.flac
+9:Iron Maiden - The Book of Souls (2015) [FLAC]/Disc 1/05 When the River Runs Deep.flac
+10:Iron Maiden - The Book of Souls (2015) [FLAC]/Disc 1/06 The Book of Souls.flac
+11:Iron Maiden - The Book of Souls (2015) [FLAC]/Disc 2/01 Death or Glory.flac
+12:Iron Maiden - The Book of Souls (2015) [FLAC]/Disc 2/02 Shadows of the Valley.flac
+13:Iron Maiden - The Book of Souls (2015) [FLAC]/Disc 2/03 Tears of a Clown.flac
+14:Iron Maiden - The Book of Souls (2015) [FLAC]/Disc 2/04 The Man of Sorrows.flac
+15:Iron Maiden - The Book of Souls (2015) [FLAC]/Disc 2/05 Empire of the Clouds.flac
+16:Jethro Tull - The Very Best Of .www.lokotorrents.com/02 Jethro Tull - Aqualung.mp3
+17:Rainbow The Very Best Of Rainbow 2011 Remastered 320 Kbps/01. Man On The Silver Mountain.mp3
+18:Rainbow The Very Best Of Rainbow 2011 Remastered 320 Kbps/02. Catch The Rainbow.mp3
+19:Rainbow The Very Best Of Rainbow 2011 Remastered 320 Kbps/05. Kill The King.mp3
+20:Rainbow The Very Best Of Rainbow 2011 Remastered 320 Kbps/06. Long Live Rock’n’Roll.mp3
+21:Rainbow The Very Best Of Rainbow 2011 Remastered 320 Kbps/09. All Night Long.mp3
+22:Rainbow The Very Best Of Rainbow 2011 Remastered 320 Kbps/14. Power.mp3
+23:The Legend of Zelda 25th Anniversary/01 - The Legend of Zelda 25th Anniversary Medley.flac
+24:The Legend of Zelda 25th Anniversary/02 - Kakariko Village - Twilight Princess Theme.flac
+25:The Legend of Zelda 25th Anniversary/03 - The Wind Waker Symphonic Movement.flac
+26:The Legend of Zelda 25th Anniversary/04 - Gerudo Valley.flac
+27:The Legend of Zelda 25th Anniversary/05 - Great Fairy's Fountain Theme.flac
+28:The Legend of Zelda 25th Anniversary/06 - Twilight Princess Symphonic Movement.flac
+29:The Legend of Zelda 25th Anniversary/07 - The Legend of Zelda Main Theme Medley.flac
+30:The Legend of Zelda 25th Anniversary/08 - Ballad of the Goddess from Skyward Sword.flac
+31:Musics/Rush/split-track04.mp3
+32:Musics/Rush/split-track07.mp3
+33:Musics/Rush/split-track09.mp3
+34:Musics/Foo Fighters/01 All My Life.mp3
+35:Musics/Foo Fighters/02 Best Of You.mp3
+36:Musics/Foo Fighters/04 The Pretender.mp3
+37:Musics/Foo Fighters/06 Learn To Fly.mp3
+38:Musics/Foo Fighters/07 Times Like These.mp3
+39:Musics/Guns N' Roses/02 Sweet child o mine.mp3
+40:Musics/Guns N' Roses/03 My Michelle.mp3
+41:Musics/Guns N' Roses/09 November Rain.mp3
+42:Musics/Guns N' Roses/10 Knockin' on Heaven's Door.mp3
+43:Musics/Guns N' Roses/You Could Be Mine.mp3
+44:Musics/outros/01 - Down Under.mp3
+45:Musics/outros/01 - Maneater.mp3
+46:Musics/outros/01 Silent Lucidity.mp3
+47:Musics/outros/03 Turn The Page.flac
+48:Musics/outros/07 Old Time Rock And Roll.flac
+49:Musics/outros/075 - Kansas - Carry On My Wayward Son.mp3
+50:Musics/outros/12 Heavy Metal Do Senhor.mp3
+51:Musics/outros/12 - You Make My Dreams.mp3
+52:Musics/01 Johann Sebastian Bach - Toccata A Fuga D Moll Bwv 565.mp3
+53:Musics/Whitesnake/03.Here I Go Again.mp3
+54:Musics/Steppenwolf/05 Steppenwolf - Born To Be Wild.mp3
+55:Musics/Steppenwolf/11 Steppenwolf - Magic Carpet Ride.mp3
+56:Musics/Steppenwolf/15 Steppenwolf - Rock 'n' Roll Rebels.mp3
+57:Musics/Rolling Stones/06 Bitch.mp3
+58:Musics/Rolling Stones/A1. Sympathy For The Devil.mp3
+59:Musics/Rolling Stones/25 Don't Stop.mp3
+60:Musics/Rolling Stones/A3. Play With Fire.mp3
+61:Musics/Rolling Stones/D3. Brown Sugar.mp3
+62:Musics/Rolling Stones/It's Only Rock 'N' Roll.mp3
+63:Musics/Queen/01 Bohemian Rhapsody (2011 Remaster).flac
+64:Musics/Led Zeppelin/07 - Going To California.mp3
+65:Musics/Led Zeppelin/04 - Stairway To Heaven.mp3
+66:Musics/Led Zeppelin/02 - Rock And Roll.mp3
+67:Musics/Chuck Berry/Chuck Berry 01 Johnny B. Goode.wma
+68:Musics/David Bowie/01 - Space Oddity.mp3
+69:Musics/David Bowie/02 - The Man Who Sold The World.mp3
+70:Musics/Eric Clapton/01. Layla (Unplugged).mp3
+71:Musics/Eric Clapton/10. Riding With The King (Feat. B.B. King).mp3
+playlist_end
