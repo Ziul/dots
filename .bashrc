@@ -1,6 +1,7 @@
 
 export WORKON_HOME=$HOME/.virtualenvs
 export MSYS_HOME=C:\msys\1.0
+export EDITOR=vim
 source /usr/local/bin/virtualenvwrapper.sh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
