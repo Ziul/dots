@@ -183,7 +183,7 @@ bar {
 bar {
         output DVI-I-1
         # status_command i3status --config ~/.i3/second.conf
-	status_command ~/.i3/mpd.sh
+        status_command ~/.i3/mpd.sh
         #separator_symbol " ~|~ " 
         colors {
                 background #000000
