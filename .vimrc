@@ -58,3 +58,5 @@ set formatoptions+=l
 
 set mouse=a
 set ttymouse=xterm2
+set wrap
+set linebreak
