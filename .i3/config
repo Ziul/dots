@@ -28,12 +28,25 @@ set $other      #E5E4E2
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
+# Font for window titles
+# font pango: Lemon 10
+font pango:SF Slapstick Comic 10
+# font pango:Eager Naturalist Regular 11
+
+# Colours of borders
+# Class                 Border      Background  Text
+client.focused          $black      $gray      $black
+client.focused_inactive $black      $black      $white
+client.unfocused        $green      $black      $white
+client.urgent           $black      $red        $black
+client.background           #E5E4E2
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -43,38 +56,21 @@ floating_modifier $mod
 bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
-#bindsym $mod+Shift+q kill
 bindsym $mod+Shift+q exec xkill
+# The middle button and a modifer over any part of the window kills the window
+bindsym --whole-window $mod+button2 kill
 
 # start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
 bindsym $mod+Ctrl+Shift+d exec --no-startup-id i3-dmenu-desktop
-# bindsym $mod+d exec --no-startup-id rofi -show run -font "snap 10" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -o 85
-# bindsym $mod+d exec --no-startup-id rofi -show run -font "Dadhand Regular 12" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -o 85
-# bindsym $mod+Shift+d exec --no-startup-id rofi -dmenu -font "Dadhand Regular 12" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -o 85
 bindsym $mod+d exec --no-startup-id rofi -show run -font "Dadhand Regular 12"
 bindsym $mod+Shift+d exec --no-startup-id rofi -show run -font "Dadhand Regular 12" -a
-
-# change focus
-#bindsym $mod+j focus left
-#bindsym $mod+k focus down
-#bindsym $mod+l focus up
-#bindsym $mod+ccedilla focus right
+bindsym F3 exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu -i -p "Abrir:  " -levenshtein-sort -fuzzy'
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
-# move focused window
-#bindsym $mod+Shift+j move left
-#bindsym $mod+Shift+k move down
-#bindsym $mod+Shift+l move up
-#bindsym $mod+Shift+ccedilla move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -102,12 +98,6 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
-workspace_auto_back_and_forth yes
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -163,8 +153,120 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
+
+
+# Binds
+bindsym Print exec gnome-screenshot
+bindsym Shift+Print exec gnome-screenshot -a
+bindsym XF86AudioRaiseVolume exec amixer -q sset Master 2%+
+bindsym XF86AudioLowerVolume exec amixer -q sset Master 2%-
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioStop exec mpc stop
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym $mod+l exec ~/.i3/i3lock.sh
+# bindsym $mod+l exec i3lock-fancy
+
+# Scratchpad
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# Show the first scratchpad window
+bindsym $mod+Shift+plus scratchpad show
+
+
+# Floatings
+for_window [title="Calculator"] floating enable
+for_window [class="Qalculate"] floating enable
+for_window [class="Nautilus" instance="file_progress"] floating enable
+for_window [class="XSane"] floating enable
+for_window [class="xsane"] floating enable
+for_window [class="Sane"] floating enable
+for_window [class="pulseaudio"] floating enable
+for_window [title="xfce4-notifyd"] floating enable
+for_window [title="xfce4-notifyd"] move absolute position 0 px 0 px
+for_window [class="(?i)google-chrome"] border none
+for_window [class="Nemo" instance="file_progress"] floating enable
+assign [class="XTerm"] → Music
+
+workspace_auto_back_and_forth yes
+workspace_layout tabbed
+#exec sudo mpd --kill && mpd
+mouse_warping output
+force_focus_wrapping yes
+
+
+# Gaps
+# gap_size 5
+new_window pixel 3
+
+
+# Setting gaps
+set $gaps_inner 5
+set $gaps_outer 5
+
+gaps inner $gaps_inner
+gaps outer $gaps_outer
+# smart_gaps on
+smart_borders on
+
+# Smart borders
+smart_borders no_gaps
+focus_follows_mouse yes
+# workspace_auto_back_and_forth yes
+force_display_urgency_hint 0 ms
+for_window [class="^.*"] border pixel 2
+
+#Gaps Modification
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
+# Look
+
+# Autostart
+exec_always --no-startup-id compton --config /home/luiz/Downloads/compton/compton.sample.conf
+exec --no-startup-id nm-applet
+#exec --no-startup-id  dropbox start
+exec --no-startup-id volumeicon
+exec --no-startup-id mpd
+exec --no-startup-id mpc play
+exec --no-startup-id xfce4-power-manager
+# exec --no-startup-id nitrogen --restore
+exec --no-startup-id xwinwrap -ov -fs -- ~/.i3/binaryring -particles-number 1000 -root -window-id WID
+exec --no-startup-id i3-msg 'workspace 2;'
+exec --no-startup-id i3-msg 'exec xterm -e ncmpcpp -S visualizer'
+exec --no-startup-id i3-msg 'exec telegram-desktop -startintray ;'
+exec --no-startup-id yabar
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -207,107 +309,3 @@ bar {
     	font pango:Punk'snotdead 16
     	# font pango:SF Slapstick Comic Shaded 12
 }
-
-
-## Luiz
-
-# Gaps
-# gap_size 5
-new_window pixel 3
-
-
-# Setting gaps
-set $gaps_inner 5
-set $gaps_outer 5
-
-gaps inner $gaps_inner
-gaps outer $gaps_outer
-# smart_gaps on
-smart_borders on
-
-# Smart borders
-smart_borders no_gaps
-focus_follows_mouse yes
-# workspace_auto_back_and_forth yes
-force_display_urgency_hint 0 ms
-
-
-# Look
-
-# Font for window titles
-font pango: Lemon 10
-
-# Colours of borders
-# Class                 Border      Background  Text
-client.focused          $black      $gray      $black
-client.focused_inactive $black      $black      $white
-client.unfocused        $green      $black      $white
-client.urgent           $black      $red        $black
-client.background           #E5E4E2
-
-# Autostart
-# exec --no-startup-id xautolock -locker ~/.i3/scripts/i3lock.sh
-exec_always --no-startup-id compton --config /home/luiz/Downloads/compton/compton.sample.conf
-# exec --no-startup-id gnome-session --session=i3-gnome
-# exec --no-startup-id gnome-settings-daemon
-exec --no-startup-id nm-applet
-#exec --no-startup-id  dropbox start
-exec --no-startup-id volumeicon
-exec --no-startup-id mpd
-exec --no-startup-id mpc play
-exec --no-startup-id xfce4-power-manager
-# exec --no-startup-id nitrogen --restore
-# exec --no-startup-id xwinwrap -ov -fs -- /usr/lib/xscreensaver/binaryring -particles-number 1000 -growth-delay 50000 -root -window-id WID
-# exec --no-startup-id xwinwrap -ov -fs -- ~/.i3/binaryring -particles-number 1000 -root -window-id WID
-# exec_always --no-startup-id xwinwrap -ov -fs -- /usr/lib/xscreensaver/binaryring -particles-number 1000 -root -window-id WID
-exec --no-startup-id xwinwrap -ov -fs -- /home/luiz/.i3/binaryring -particles-number 1000 -root -window-id WID
-exec --no-startup-id i3-msg 'workspace 2;'
-# exec --no-startup-id i3-msg 'exec xterm -e ncmpcpp; workspace 10: Music+etc;'
-exec --no-startup-id i3-msg 'exec xterm -e ncmpcpp -S visualizer'
-# exec --no-startup-id i3-msg 'workspace 1;'
-exec --no-startup-id i3-msg 'exec telegram-desktop -startintray ;'
-exec --no-startup-id yabar
-
-# Binds
-# bindsym $mod+Shift+x exec --no-startup-id gnome-session-quit --power-off
-bindsym F3 exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu -i -p "Abrir:  " -levenshtein-sort -fuzzy'
-bindsym Print exec gnome-screenshot -a
-bindsym XF86AudioRaiseVolume exec amixer -q sset Master 2%+
-bindsym XF86AudioLowerVolume exec amixer -q sset Master 2%-
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioStop exec mpc stop
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc prev
-bindsym XF86AudioMute exec amixer -q set Master toggle
-bindsym $mod+l exec ~/.i3/i3lock.sh
-# bindsym $mod+l exec i3lock-fancy
-# Make the currently focused window a scratchpad
-bindsym $mod+Shift+minus move scratchpad
-# The middle button and a modifer over any part of the window kills the window
-bindsym --whole-window $mod+button2 kill
-
-
-# Show the first scratchpad window
-bindsym $mod+Shift+plus scratchpad show
-
-for_window [title="Calculator"] floating enable
-for_window [class="Qalculate"] floating enable
-for_window [class="Nautilus" instance="file_progress"] floating enable
-for_window [class="XSane"] floating enable
-for_window [class="xsane"] floating enable
-for_window [class="Sane"] floating enable
-for_window [class="pulseaudio"] floating enable
-for_window [title="xfce4-notifyd"] floating enable
-for_window [title="xfce4-notifyd"] move absolute position 0 px 0 px
-for_window [class="(?i)google-chrome"] border none
-for_window [class="Nemo" instance="file_progress"] floating enable
-assign [class="XTerm"] → Music
-# assign [class="XTerm"] → 3
-
-workspace_layout tabbed
-#exec sudo mpd --kill && mpd
-mouse_warping output
-force_focus_wrapping yes
-
-font pango:SF Slapstick Comic 11
-# font pango:Eager Naturalist Regular 10
