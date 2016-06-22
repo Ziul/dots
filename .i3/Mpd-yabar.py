@@ -8,7 +8,6 @@ import time
 import sys
 import ctypes
 
-
 [MPD_TAG_UNKNOWN, MPD_TAG_ARTIST, MPD_TAG_ALBUM, MPD_TAG_ALBUM_ARTIST, MPD_TAG_TITLE, MPD_TAG_TRACK, MPD_TAG_NAME, MPD_TAG_GENRE, MPD_TAG_DATE, MPD_TAG_COMPOSER, MPD_TAG_PERFORMER, MPD_TAG_COMMENT, MPD_TAG_DISC, MPD_TAG_MUSICBRAINZ_ARTISTID, MPD_TAG_MUSICBRAINZ_ALBUMID, MPD_TAG_MUSICBRAINZ_ALBUMARTISTID, MPD_TAG_MUSICBRAINZ_TRACKID, MPD_TAG_COUNT
  ] = map(ctypes.c_int, range(-1, 17))
 
@@ -99,7 +98,7 @@ class Mpd(object):
                     return str(tag_value, "utf-8") if None != tag_value else ""
 
             if tag_to_str(MPD_TAG_ARTIST):
-                song_string = "{}:   {}".format \
+                song_string = "{}:{}".format \
                     (tag_to_str(MPD_TAG_ARTIST), tag_to_str(MPD_TAG_TITLE)
                      )
             else:
@@ -119,9 +118,10 @@ class Mpd(object):
                 ("▮" * num_full_bars, "▯" * (num_bars - num_full_bars)
                  )
 
-        return "{} {}".format(state_string, song_string).replace('&', '-')
+        return "{}  {}".format(state_string, song_string).replace('&', '-')
 
 
 if __name__ == '__main__':
     m = Mpd()
-    print(m.status().center(230) + time.strftime("%H:%M\t%d/%m/%Y"))
+    # print(m.status().center(230) + time.strftime("%H:%M\t%d/%m/%Y"))
+    print(m.status())

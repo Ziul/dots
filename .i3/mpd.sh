@@ -3,5 +3,6 @@ do
         read line
         playing=$(~/.i3/Mpd.py)
         # playing=$(mpc current)
-        echo "$playing | $line" || exit 1
+        # echo "$playing | $line" || exit 1
+        echo "$playing " || exit 1
 done

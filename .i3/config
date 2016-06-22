@@ -10,26 +10,20 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-# gap_size 5
-new_window pixel 3
-
-
-# Setting gaps
-set $gaps_inner 1
-set $gaps_outer 4
 
 
 # Colours
 
 set $black      #000000
 set $white      #FFFFFF
-set $gray	    #050505
-set $red        #C64552
+set $gray       #BFA6A6
+set $red        #87041E
 set $green      #2E8B57
 set $yellow     #DE9E4E
 set $blue       #479EBB
 set $orange     #75314B
 set $cyan       #618485
+set $other      #E5E4E2
 
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -45,7 +39,8 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 #bindsym $mod+Shift+q kill
@@ -56,8 +51,12 @@ bindsym $mod+Shift+q exec xkill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+Shift+d exec --no-startup-id rofi -show run -font "snap 10" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -o 85
+bindsym $mod+Ctrl+Shift+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+d exec --no-startup-id rofi -show run -font "snap 10" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -o 85
+# bindsym $mod+d exec --no-startup-id rofi -show run -font "Dadhand Regular 12" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -o 85
+# bindsym $mod+Shift+d exec --no-startup-id rofi -dmenu -font "Dadhand Regular 12" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -o 85
+bindsym $mod+d exec --no-startup-id rofi -show run -font "Dadhand Regular 12"
+bindsym $mod+Shift+d exec --no-startup-id rofi -show run -font "Dadhand Regular 12" -a
 
 # change focus
 #bindsym $mod+j focus left
@@ -108,6 +107,7 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+workspace_auto_back_and_forth yes
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -119,7 +119,7 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10: Music+etc
+bindsym $mod+0 workspace Music
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -131,7 +131,7 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10: Music+etc
+bindsym $mod+Shift+0 move container to workspace Music
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -171,95 +171,120 @@ bindsym $mod+r mode "resize"
 # Find witch monitor with:
 # xrandr | grep \ connected
 bar {
-        #output LVDS1
-        tray_output LVDS1
+        output DVI-I-0
         status_command i3status  --config ~/.i3/first.conf
-        #separator_symbol ":|:"
-        font pango:Secret Service Typewriter 10
+        separator_symbol ":|:"
+        # font pango:Secret Service Typewriter 10
+    	font pango:SF Slapstick Comic Shaded 12
+    	# font pango:Punk'snotdead 16
         # mode hide
-
-}
-
-bar {
-        output DVI-I-1
-        # status_command i3status --config ~/.i3/second.conf
-        status_command ~/.i3/mpd.sh
-        #separator_symbol " ~|~ " 
         colors {
                 background #000000
                 statusline #00ff00
                 urgent_workspace   #aa0000 #990000 #ffffff
+                separator  #7DfdfE
         }
+        # tray_output DVI-I-0
+
+}
+
+bar {
+        output HDMI-0
+        # status_command i3status --config ~/.i3/second.conf
+        status_command ~/.i3/mpd.sh
+        # status_command i3block
+        separator_symbol " : " 
         # urgent_workspace #ffffff #900000
-        #font pango:Eager Naturalist 9
-	font pango:Secret Service Typewriter 10
+        font pango:Eager Naturalist 9
+        # mode hide
+        colors {
+                        background #000000
+                        statusline #00ff00
+                        urgent_workspace   #aa0000 #990000 #ffffff
+                        separator  #7DfdfE
+                }
+        tray_output DVI-I-0
+    	font pango:Punk'snotdead 16
+    	# font pango:SF Slapstick Comic Shaded 12
 }
 
 
 ## Luiz
 
 # Gaps
-#gaps inner $gaps_inner
-#gaps outer $gaps_outer
-#smart_gaps on
-#smart_borders no_gaps
+# gap_size 5
+new_window pixel 3
+
+
+# Setting gaps
+set $gaps_inner 5
+set $gaps_outer 5
+
+gaps inner $gaps_inner
+gaps outer $gaps_outer
+# smart_gaps on
+smart_borders on
 
 # Smart borders
-#smart_borders no_gaps
+smart_borders no_gaps
 focus_follows_mouse yes
-workspace_auto_back_and_forth yes
+# workspace_auto_back_and_forth yes
 force_display_urgency_hint 0 ms
 
-    # Look
+
+# Look
 
 # Font for window titles
-font pango: Lemon 8
+font pango: Lemon 10
 
 # Colours of borders
 # Class                 Border      Background  Text
-client.focused          $green      $black      $green
+client.focused          $black      $gray      $black
 client.focused_inactive $black      $black      $white
 client.unfocused        $green      $black      $white
 client.urgent           $black      $red        $black
-
+client.background           #E5E4E2
 
 # Autostart
-exec --no-startup-id xautolock -locker ~/.i3/scripts/i3lock.sh
-#exec_always --no-startup-id compton --config ~/Downloads/compton/compton.sample.conf
-#exec --no-startup-id gnome-session --session=i3-gnome
-exec --no-startup-id gnome-settings-daemon
-exec --no-startup-id nitrogen --restore
+# exec --no-startup-id xautolock -locker ~/.i3/scripts/i3lock.sh
+exec_always --no-startup-id compton --config /home/luiz/Downloads/compton/compton.sample.conf
+# exec --no-startup-id gnome-session --session=i3-gnome
+# exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id nm-applet
 #exec --no-startup-id  dropbox start
-
+exec --no-startup-id volumeicon
+exec --no-startup-id mpd
+exec --no-startup-id mpc play
+exec --no-startup-id xfce4-power-manager
+# exec --no-startup-id nitrogen --restore
+# exec --no-startup-id xwinwrap -ov -fs -- /usr/lib/xscreensaver/binaryring -particles-number 1000 -growth-delay 50000 -root -window-id WID
+# exec --no-startup-id xwinwrap -ov -fs -- ~/.i3/binaryring -particles-number 1000 -root -window-id WID
+# exec_always --no-startup-id xwinwrap -ov -fs -- /usr/lib/xscreensaver/binaryring -particles-number 1000 -root -window-id WID
+exec --no-startup-id xwinwrap -ov -fs -- /home/luiz/.i3/binaryring -particles-number 1000 -root -window-id WID
+exec --no-startup-id i3-msg 'workspace 2;'
+# exec --no-startup-id i3-msg 'exec xterm -e ncmpcpp; workspace 10: Music+etc;'
+exec --no-startup-id i3-msg 'exec xterm -e ncmpcpp -S visualizer'
+# exec --no-startup-id i3-msg 'workspace 1;'
+exec --no-startup-id i3-msg 'exec telegram-desktop -startintray ;'
+exec --no-startup-id yabar
 
 # Binds
-#bindsym $mod+Shift+x exec --no-startup-id gnome-session-quit --power-off
-bindsym --release Print exec gnome-screenshot
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+# bindsym $mod+Shift+x exec --no-startup-id gnome-session-quit --power-off
+bindsym F3 exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu -i -p "Abrir:  " -levenshtein-sort -fuzzy'
+bindsym Print exec gnome-screenshot -a
+bindsym XF86AudioRaiseVolume exec amixer -q sset Master 2%+
+bindsym XF86AudioLowerVolume exec amixer -q sset Master 2%-
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioStop exec mpc stop
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioMute exec amixer -q set Master toggle
 bindsym $mod+l exec ~/.i3/i3lock.sh
+# bindsym $mod+l exec i3lock-fancy
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
-
-set $Locker i3lock && sleep 1
-
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id $Locker, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym XF86PowerOff mode "$mode_system"
+# The middle button and a modifer over any part of the window kills the window
+bindsym --whole-window $mod+button2 kill
 
 
 # Show the first scratchpad window
@@ -271,13 +296,18 @@ for_window [class="Nautilus" instance="file_progress"] floating enable
 for_window [class="XSane"] floating enable
 for_window [class="xsane"] floating enable
 for_window [class="Sane"] floating enable
+for_window [class="pulseaudio"] floating enable
 for_window [title="xfce4-notifyd"] floating enable
-for_window [title="xfce4-notifyd"] move absolute position 100 px 0 px
+for_window [title="xfce4-notifyd"] move absolute position 0 px 0 px
 for_window [class="(?i)google-chrome"] border none
 for_window [class="Nemo" instance="file_progress"] floating enable
+assign [class="XTerm"] → Music
+# assign [class="XTerm"] → 3
 
 workspace_layout tabbed
 #exec sudo mpd --kill && mpd
-#mouse_warping output
+mouse_warping output
 force_focus_wrapping yes
 
+font pango:SF Slapstick Comic 11
+# font pango:Eager Naturalist Regular 10
