@@ -254,8 +254,9 @@ mode "$mode_gaps_outer" {
 # Look
 
 # Autostart
-exec_always --no-startup-id compton --config /home/luiz/Downloads/compton/compton.sample.conf
+exec_always --no-startup-id compton --config ~/.i3/compton.conf
 exec --no-startup-id nm-applet
+exec --no-startup-id ~/.i3/initncmcpp.sh
 #exec --no-startup-id  dropbox start
 exec --no-startup-id volumeicon
 exec --no-startup-id mpd
