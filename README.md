@@ -1,15 +1,25 @@
 # Dots
 My dots files.
 
-Using 2 monitors with diferent size.
+### Using a single monitor
 
-### Busy
+#### Fake-Busy
+
+![Busy](./busy_single.png)
+
+#### Clean
+
+![Clean](./clean_single.png)
+
+### Using 2 monitors with diferent size.
+
+#### Busy
 
 ![Busy](./busy.png)
 
-### Clean
-![Clean](./clean.png)
+#### Clean
 
+![Clean](./clean.png)
 
 # Animation 
 
