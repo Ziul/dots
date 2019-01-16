@@ -51,7 +51,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker)
+plugins=(git docker kubectl)
 
 source $ZSH/oh-my-zsh.sh
 export WORKON_HOME=$HOME/.virtualenvs
@@ -85,10 +85,19 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
-# export LESS=' -R '
+export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
+export LESS=' -R '
 export VISUAL="vim"
-eval $(thefuck --alias)
-export PKG_CONFIG_PATH=/usr/lib/pkgconfig
+#eval $(thefuck --alias)
+#export PKG_CONFIG_PATH=/usr/lib/pkgconfig
 
-alias less="/usr/share/vim/vim80/macros/less.sh"
+alias less="/usr/share/vim/vim81/macros/less.sh"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+if [ /usr/bin/kubectl ]; then source <(kubectl completion zsh); fi
+
+[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+source /usr/share/nvm/nvm.sh
+source /usr/share/nvm/bash_completion
+source /usr/share/nvm/install-nvm-exec
+alias rk='rancher kubectl'
+
